@@ -14,11 +14,13 @@ Core gameplay revolves around clearing of "nodes", locked down sectors of Alcatr
 Characters:
 
 Swanee Portrait:
+
 ![alt text](http://i.imgur.com/3nsiWE5.png)
 
 Description
 
 Mueller Portrait:
+
 ![alt text](http://i.imgur.com/o8QXkWl.png)
 
 Description
