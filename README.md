@@ -1,5 +1,6 @@
 ![alt text](http://i.imgur.com/XyZsxcF.gif)
 
+# "From now on, we do it my way"
 
 **Swanee** is a side-scrolling cover shooter, set in a distant future rendition of San Francisco.
 
