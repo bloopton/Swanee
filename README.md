@@ -1,4 +1,4 @@
-![alt text](http://i.imgur.com/GmrNEgc.gif)
+![alt text](http://i.imgur.com/ZIMt0GJ.gif)
 
 
 A side-scrolling cover shooter, set in a retro-futuristic San Francisco.
