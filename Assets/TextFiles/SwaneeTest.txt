@@ -1,0 +1,11 @@
+﻿This is a radio.
+It plays smooth jazz.
+Smooth like you.
+You need to get dressed before seeing the Warden.
+A suit for the good days, a pistol for the bad.
+
+Time to go see what the Warden needs.
+Line 7 For washing hands.
+
+
+/Buffer

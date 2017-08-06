@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 96f415c2c7ccc4764943ce0546b0fc1c
+timeCreated: 1486431977
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: WABECO
+  fontNames:
+  - WABECO
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
