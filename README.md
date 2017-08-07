@@ -27,7 +27,7 @@ Description
 
 Moonface (The Man in the Moon) Portrait:
 
-![alt text](http://i.imgur.com/3w8k1ab.png)
+![alt text](http://i.imgur.com/lLGtBkA.png)
 
 
 
