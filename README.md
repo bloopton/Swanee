@@ -25,7 +25,7 @@ Mueller Portrait:
 
 Description
 
-Moonface (The Man in the Moon Portrait:
+Moonface (The Man in the Moon) Portrait:
 
 ![alt text](http://i.imgur.com/3w8k1ab.png)
 
