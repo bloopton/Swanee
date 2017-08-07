@@ -21,7 +21,7 @@ Description
 
 Mueller Portrait:
 
-![alt text](http://i.imgur.com/o8QXkWl.png)
+![alt text](http://i.imgur.com/YjtlcXC.png)
 
 Description
 
