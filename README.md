@@ -15,7 +15,7 @@ Characters:
 
 Swanee Portrait:
 
-![alt text](http://i.imgur.com/f33hCUK.png)
+![alt text](http://i.imgur.com/uSsHeRa.png)
 
 Description
 
