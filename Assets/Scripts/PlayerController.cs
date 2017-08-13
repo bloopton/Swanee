@@ -7,14 +7,16 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour {
 	public GameObject manager;
 	public bool isActive;
-	public KeyCode use, moveRight, moveLeft;
+	public KeyCode use, moveRight, moveLeft, moveDown, moveUp;
 	Rigidbody2D playerRB;
 	private Animator animator;
 	MovementScript ms;
 	public bool canMove;
+	public bool climbing, nearTopLadder, nearBottomLadder;
 	// Use this for initialization
 	void Start () {
-		
+		//default set climbing to false, usually will spawn in standing
+		climbing = false;
 		if (SceneManager.GetActiveScene ().buildIndex == 0) {
 			isActive = false;
 		} else {
@@ -28,6 +30,8 @@ public class PlayerController : MonoBehaviour {
 		//use = KeyCode.F
 		moveRight =  KeyCode.D;
 		moveLeft = KeyCode.A;
+		moveDown = KeyCode.S;
+		moveUp = KeyCode.W;
 	}
 	
 	// Update is called once per frame
@@ -41,6 +45,46 @@ public class PlayerController : MonoBehaviour {
 		if (!canMove) {
 			return;
 		}
+		//enter/exit ladder code
+		if (nearTopLadder) {
+			if (!climbing) {
+				if (Input.GetKey (moveDown)) {
+					climbing = true;
+				}
+			} 
+			else {
+				//get off ladder at top
+				if (Input.GetKey (moveUp)) {
+					climbing = false;
+				}
+			}
+		}
+		else if(nearBottomLadder)
+		{
+			if (!climbing) {
+				if (Input.GetKey (moveUp)) {
+					climbing = true;
+				}
+			} 
+			else {
+				//get off ladder at bottom
+				if (Input.GetKey (moveDown) || Input.GetKey(moveRight) || Input.GetKey(moveLeft)) {
+					climbing = false;
+				}
+			}
+		}
+			
+		//end enter/exit ladder code
+
+		//climb ladder code
+		if(climbing){
+			if (Input.GetKey (moveUp)) {
+				//MoveScript moveup
+			}
+			else if (Input.GetKey (moveDown)) {
+				//movescript movedown
+			}
+		} else {
 		if (Input.GetKey (moveRight)) {
 			if (animator.GetBool ("HasBegun") == false) {
 				animator.SetBool ("HasBegun", true);
@@ -62,7 +106,7 @@ public class PlayerController : MonoBehaviour {
 			}
 		} else
 			animator.SetBool ("Walking", false);
-		Debug.Log ("Is active " + isActive);
+		}
 	}
 
 	public void setActive(){

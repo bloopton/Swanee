@@ -21,3 +21,8 @@
 /Users/Bloopton/Swanee/Temp/bin/Debug/Mono.Cecil.Mdb.dll
 /Users/Bloopton/Swanee/Temp/bin/Debug/UnityEngine.Advertisements.dll
 /Users/Bloopton/Swanee/Temp/bin/Debug/UnityEngine.Purchasing.dll
+/Users/Bloopton/Swanee/Temp/bin/Debug/UnityEngine.TestRunner.dll
+/Users/Bloopton/Swanee/Temp/bin/Debug/nunit.framework.dll
+/Users/Bloopton/Swanee/Temp/bin/Debug/UnityEngine.Timeline.dll
+/Users/Bloopton/Swanee/Temp/bin/Debug/ExCSS.Unity.dll
+/Users/Bloopton/Swanee/Temp/bin/Debug/Unity.Legacy.NRefactory.dll
