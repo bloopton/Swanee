@@ -5,6 +5,16 @@ using UnityEngine.UI;
 
 public class TextBoxManager : MonoBehaviour {
 
+	public bool hasLetterSounds;//if true, every letter rendered produces a sound
+	public AudioSource letterSound;
+
+	int beforeFadeCounter;
+
+	public bool fadeOut;//if true, rendered full line fades out after specified time
+	public float fadeDelay;//time to let text linger
+
+	public bool useButton;
+
 	//public GameObject textBox;
 	public Text theText;	
 	public TextAsset textFile;
@@ -28,6 +38,13 @@ public class TextBoxManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		beforeFadeCounter = 0;
+
+		if (hasLetterSounds) {
+			letterSound = GetComponent<AudioSource> ();
+		}
+
 		if (isActive) {
 			EnableTextBox ();
 		} else {
@@ -52,16 +69,46 @@ public class TextBoxManager : MonoBehaviour {
 */
 	// Update is called once per frame
 	void FixedUpdate () {
-		//theText.text = textLines [currentLine];
-		//Debug.Log (textLines [currentLine]);
 
-		//if (currentLine >= endAtLine) {
-		//	DisableTextBox ();
-		//}
-		if (Input.GetKeyDown(KeyCode.E)) {
-			if (isActive) {//to prevent premature iteration
-				Iterate ();
+		if (!fadeOut) {
+			if (Input.GetKeyDown (KeyCode.E)) {
+				if (isActive) {//to prevent premature iteration
+					Iterate ();
+				}
 			}
+		}
+	}
+
+	//fading text
+	public IEnumerator FadeTextToFullAlpha(float t)
+	{
+		Text i = theText;
+
+		if (beforeFadeCounter < 1) {
+			beforeFadeCounter++;
+			yield return new WaitForSeconds (fadeDelay);
+		}
+		i.color = new Color(i.color.r, i.color.g, i.color.b, 0);
+		while (i.color.a < 1.0f)
+		{
+			i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a + (Time.deltaTime / t));
+			yield return null;
+		}
+	}
+
+	public IEnumerator FadeTextToZeroAlpha(float t)
+	{
+		Text i = theText;
+
+		if (beforeFadeCounter < 1) {
+			beforeFadeCounter++;
+			yield return new WaitForSeconds (fadeDelay);
+		}
+		i.color = new Color(i.color.r, i.color.g, i.color.b, 1);
+		while (i.color.a > 0.0f)
+		{
+			i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a - (Time.deltaTime / t));
+			yield return null;
 		}
 	}
 
@@ -70,7 +117,7 @@ public class TextBoxManager : MonoBehaviour {
 		if(!isTyping){
 			currentLine += 1;//move to next line of text
 			if (currentLine >= endAtLine) {
-				DisableTextBox ();
+				DisableTextBox ();//text box is disabled
 			} else {
 				StartCoroutine (TextScroll (textLines [currentLine]));
 			}
@@ -87,20 +134,32 @@ public class TextBoxManager : MonoBehaviour {
 		while (isTyping && !cancelTyping && (letter < lineOfText.Length - 1)) {
 			theText.text += lineOfText [letter];
 			letter++;
+			if (hasLetterSounds) {
+				letterSound.Play ();
+			}
 			yield return new WaitForSeconds (typeSpeed);
 		}
 		theText.text = lineOfText;
 		isTyping = false;
 		cancelTyping = false;
 
+		if (fadeOut) {//fade text out
+			
+			StartCoroutine(FadeTextToZeroAlpha(1f));
+
+			Debug.Log ("End");
+		}
+
 	}
 
 
 	public void EnableTextBox(){
 	//	textBox.SetActive (true);
-		nextButton.gameObject.SetActive(true);
+		if (useButton) {
+			nextButton.gameObject.SetActive (true);
+			nextButton.enabled = true;
+		}
 		theText.gameObject.SetActive (true);
-		nextButton.enabled = true;
 		isActive = true;
 		if (stopPlayerMovement) {
 			player.canMove = false;
@@ -110,6 +169,7 @@ public class TextBoxManager : MonoBehaviour {
 	}
 
 	public void DisableTextBox(){
+
 		isActive = false;
 		//textBox.SetActive (false);
 		theText.gameObject.SetActive (false);

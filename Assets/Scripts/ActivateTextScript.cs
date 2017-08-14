@@ -19,7 +19,8 @@ public class ActivateTextScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
-		theTextBox = FindObjectOfType<TextBoxManager> ();
+		if(theTextBox == null) 
+			theTextBox = FindObjectOfType<TextBoxManager> ();
 		theText = theTextBox.textFile;
 	}
 

@@ -1,9 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PlaySoundScript.cs">
     <Files>
-      <File FileName="Assets/Scripts/ManagerScript.cs" Line="5" Column="8" />
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="60" Column="5" />
+      <File FileName="Assets/CameraBind.cs" Line="36" Column="66" />
+      <File FileName="Assets/Scripts/ManagerScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/TextBoxManager.cs" Line="101" Column="48" />
+      <File FileName="Assets/TextFiles/AlcatrazScript.txt" Line="1" Column="1" />
+      <File FileName="Assets/PlaySoundScript.cs" Line="22" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -52,7 +52,13 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CameraBind.cs" />
+     <Compile Include="Assets\DisableCollisionsScript.cs" />
      <Compile Include="Assets\FadeBlackScript.cs" />
+     <Compile Include="Assets\InLevelDoorScript.cs" />
+     <Compile Include="Assets\LadderScript.cs" />
+     <Compile Include="Assets\LevelTimer.cs" />
+     <Compile Include="Assets\ParallaxScript.cs" />
+     <Compile Include="Assets\PlaySoundScript.cs" />
      <Compile Include="Assets\RailCarScript.cs" />
      <Compile Include="Assets\Scripts\ActivateTextScript.cs" />
      <Compile Include="Assets\Scripts\ChangeLevelScript.cs" />
@@ -67,7 +73,10 @@
      <Compile Include="Assets\Scripts\RadioScript.cs" />
      <Compile Include="Assets\Scripts\ScrollScript.cs" />
      <Compile Include="Assets\Scripts\TextBoxManager.cs" />
+     <Compile Include="Assets\TextFadeHandler.cs" />
+     <None Include="Assets\TextFiles\AlcatrazScript.txt" />
      <None Include="Assets\TextFiles\SwaneeTest.txt" />
+     <None Include="Assets\TextFiles\LevelNames.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

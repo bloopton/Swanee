@@ -7,12 +7,14 @@ public class RadioScript : MonoBehaviour {
 	public GameObject musicObject;
 	public AudioSource backgroundMusic;
 	bool playerInTriggerZone;
+	float initVol;
 	Animator animator;
 	// Use this for initialization
 	void Start () {
 		backgroundMusic = musicObject.GetComponent<AudioSource> ();
 		playerInTriggerZone = false;
 		animator = GetComponent<Animator> ();
+		initVol = backgroundMusic.volume;
 	}
 	
 	// Update is called once per frame
@@ -21,11 +23,11 @@ public class RadioScript : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.F)) {
 			if (playerInTriggerZone) {
 					//Debug.Log ("Got F");
-				if (backgroundMusic.volume == 1f) {
+				if (backgroundMusic.volume == initVol) {
 					backgroundMusic.volume = .05f;
 					animator.SetBool ("On", false);
 				} else {
-					backgroundMusic.volume = 1f;
+					backgroundMusic.volume = initVol;
 					animator.SetBool ("On", true);
 
 				}

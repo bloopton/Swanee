@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/**
+ * WARNING ONLY USE IF HAVE SPRITERENDERER ATTACHED
+ * 
+ * */
 public class FadeScript : MonoBehaviour {
 
 	public float fadeSpeed = 1f;
@@ -12,7 +15,6 @@ public class FadeScript : MonoBehaviour {
 
 	void Awake(){
 		fading = false;
-		Debug.Log ("Alpha created");
 		if (gameObject.GetComponent<SpriteRenderer> () != null) {
 			Debug.Log ("ONE SR");
 			sprites = gameObject.GetComponents<SpriteRenderer> ();
@@ -55,8 +57,6 @@ public class FadeScript : MonoBehaviour {
 	}
 
 	IEnumerator FadeOut() {
-		Debug.Log (sprites [0]);
-
 		foreach (SpriteRenderer s in sprites) {
 			//fading = true;
 			IEnumerator coroutine = FadeMethod (s);

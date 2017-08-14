@@ -7,7 +7,13 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
+    guid: 3d9278c6752e74c92a9c8e79367d2f22
   - enabled: 1
     path: Assets/Scenes/Dressed_Office.unity
+    guid: d030ccb483502448fb5c62a07195d323
   - enabled: 1
     path: Assets/Scenes/RideToWork.unity
+    guid: d7e7fd479b3a14aaca30eb525aec32c1
+  - enabled: 1
+    path: Assets/Scenes/Alkatraz.unity
+    guid: 818e08d29ea844f3594e3cc46bb0c05d

@@ -53,15 +53,21 @@ public class MovementScript : MonoBehaviour {
 		if (Mathf.Abs (playerRB.velocity.x) < runVel)
 			playerRB.AddForce (new Vector2 (-runForce, 0), ForceMode2D.Force);
 	}
+	public void runRight(){
+		if (Mathf.Abs (playerRB.velocity.x) < runVel)
+			playerRB.AddForce (new Vector2 (runForce*1.5f, 0), ForceMode2D.Force);
+	}
+	public void runLeft(){
+		if (Mathf.Abs (playerRB.velocity.x) < runVel)
+			playerRB.AddForce (new Vector2 (-runForce*1.5f, 0), ForceMode2D.Force);
+	}
 
 	public void moveUp(){
-		if (Mathf.Abs (playerRB.velocity.y) < runVel)
-			playerRB.AddForce (new Vector2 (0, runForce), ForceMode2D.Force);
+			playerRB.velocity = new Vector3 (0, 1.5f, 0);
 	}
 
 	public void moveDown(){
-		if (Mathf.Abs (playerRB.velocity.y) < runVel)
-			playerRB.AddForce (new Vector2 (0, -runForce), ForceMode2D.Force);
+			playerRB.velocity = new Vector3 (0, -1.5f, 0);
 	}
 	public void jump(){
 		playerRB.AddForce (new Vector2 (0, jumpPower), ForceMode2D.Impulse);

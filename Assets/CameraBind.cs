@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CameraBind : MonoBehaviour {
 
+
+	public bool moving;
 	Transform target;
 	GameObject targetObj;
 	public Transform startPos;
@@ -33,8 +35,12 @@ public class CameraBind : MonoBehaviour {
 		//	if (cam.WorldToViewportPoint (endPos.position).x > 1 && cam.WorldToViewportPoint (endPos.position).x < 0) {
 				
 		if (Mathf.Abs (target.position.x - startPos.position.x) > initDistance && Mathf.Abs (target.position.x - endPos.position.x) > initDistance) {//if player moves away from intial position, track
-			if(target.transform.position.x > startPos.position.x && target.transform.position.x < endPos.position.x)
+			if (target.transform.position.x > startPos.position.x && target.transform.position.x < endPos.position.x) {
 				transform.position = new Vector3 (target.position.x, transform.position.y, transform.position.z);
+				moving = true;
+			}
+		} else {
+			moving = false;
 		}
 		//	}
 		//}
