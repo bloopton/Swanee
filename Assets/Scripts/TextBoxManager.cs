@@ -60,22 +60,25 @@ public class TextBoxManager : MonoBehaviour {
 			endAtLine = textLines.Length - 1;
 		}
 	}
-
-	/*
-	void OnEnable(){
-		//		Debug.Log("Button Enabled");
-		nextButton.onClick.AddListener (Iterate);//enable "next line of text" button
-	}
-*/
-	// Update is called once per frame
+		
 	void FixedUpdate () {
 
 		if (!fadeOut) {
 			if (Input.GetKeyDown (KeyCode.E)) {
 				if (isActive) {//to prevent premature iteration
-					Iterate ();
+					if (useButton) {
+						Iterate ();
+					}
 				}
 			}
+		}
+		fadeCleanUp ();
+	}
+
+	public void fadeCleanUp(){
+		//if faded, disable text box
+		if (theText.color.a <= 0f) {
+			DisableTextBox ();
 		}
 	}
 
@@ -113,7 +116,8 @@ public class TextBoxManager : MonoBehaviour {
 	}
 
 	void Iterate(){
-		//	Debug.Log("Button Listener");
+		Debug.Log("Current line " + currentLine);
+		Debug.Log("Text " + textLines[currentLine]);
 		if(!isTyping){
 			currentLine += 1;//move to next line of text
 			if (currentLine >= endAtLine) {
@@ -146,8 +150,7 @@ public class TextBoxManager : MonoBehaviour {
 		if (fadeOut) {//fade text out
 			
 			StartCoroutine(FadeTextToZeroAlpha(1f));
-
-			Debug.Log ("End");
+			//Debug.Log ("End");
 		}
 
 	}
@@ -155,6 +158,8 @@ public class TextBoxManager : MonoBehaviour {
 
 	public void EnableTextBox(){
 	//	textBox.SetActive (true);
+		//Debug.Log ("Enabing text box");
+
 		if (useButton) {
 			nextButton.gameObject.SetActive (true);
 			nextButton.enabled = true;
@@ -169,18 +174,22 @@ public class TextBoxManager : MonoBehaviour {
 	}
 
 	public void DisableTextBox(){
-
+		if (stopPlayerMovement) {//so that other stopPM scripts are not sabotaged
+			player.canMove = true; 
+		}
 		isActive = false;
 		//textBox.SetActive (false);
 		theText.gameObject.SetActive (false);
-		nextButton.gameObject.SetActive(false);
-		nextButton.enabled = false;
-		player.canMove = true;
+		if (useButton) {
+			nextButton.gameObject.SetActive (false);
+			nextButton.enabled = false;
+		}
+		//Debug.Log ("Disabling text box");
 	}
 
 	public void ReloadScript(TextAsset theText){
 		if (theText != null) {
-			textLines = new string[2];
+			//textLines = new string[];
 			textLines = (theText.text.Split ('\n'));
 		}
 	}

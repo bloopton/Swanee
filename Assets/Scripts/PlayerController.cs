@@ -44,6 +44,9 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		//Debug.Log ("Can move" + canMove);
+
 		if (isActive == true && manager.GetComponent<ManagerScript> ().hasBegun == false) {
 			manager.GetComponent<ManagerScript> ().hasBegun = true;
 		}
@@ -132,15 +135,25 @@ public class PlayerController : MonoBehaviour {
 			}
 			*/
 			if (Input.GetKey (moveRight) && Input.GetKey (toggleRun)) {
-				animator.SetBool ("Running", true);
-				animator.SetBool ("Walking", false);
+				if (animator.GetBool ("HasBegun") == false) {
+					animator.SetBool ("HasBegun", true);
+				}
+				if (isActive) {
+					animator.SetBool ("Running", true);
+					animator.SetBool ("Walking", false);
 
-				ms.runRight ();
+					ms.runRight ();
+				}
 			} else if (Input.GetKey (moveLeft) && Input.GetKey (toggleRun)) {
-				animator.SetBool ("Running", true);
-				animator.SetBool ("Walking", false);
+				if (animator.GetBool ("HasBegun") == false) {
+					animator.SetBool ("HasBegun", true);
+				}
+				if (isActive) {
+					animator.SetBool ("Running", true);
+					animator.SetBool ("Walking", false);
 
-				ms.runLeft ();
+					ms.runLeft ();
+				}
 			} else if (Input.GetKey (moveRight)) {
 				if (animator.GetBool ("HasBegun") == false) {
 					animator.SetBool ("HasBegun", true);
@@ -148,15 +161,7 @@ public class PlayerController : MonoBehaviour {
 				
 				if (isActive) {//Wait until done getting up from table before allowing movement
 					if (playerRB.velocity.y == 0)
-				/*	if (running) {
-						animator.SetBool ("Running", true);
-						animator.SetBool ("Walking", false);
-
-						ms.runRight ();
-
-
-					} else {
-					*/
+				
 						ms.moveRight ();
 					animator.SetBool ("Walking", true);
 					animator.SetBool ("Running", false);
@@ -171,14 +176,7 @@ public class PlayerController : MonoBehaviour {
 				}
 				if (isActive) {
 					if (playerRB.velocity.y == 0)
-						/*
-					if (running) {
-						animator.SetBool ("Running", true);
-						animator.SetBool ("Walking", false);
-
-						ms.runLeft ();
-					} else {
-					*/
+				
 						ms.moveLeft ();
 					animator.SetBool ("Walking", true);
 					animator.SetBool ("Running", false);

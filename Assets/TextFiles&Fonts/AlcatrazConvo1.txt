@@ -1,0 +1,16 @@
+~Swanee:
+~Mueller:
+>Swanee:Glad you could make it, [Kaspar Mueller].
+>Mueller:Miss an invitation from the man I broke strikes with?
+>Swanee:...That was a long time ago.
+>Mueller:You've got that right. I've been getting rusty.
+>Swanee:Let's try to keep the killing to a minimum today.
+>Mueller:What did [Warden Chang] want with you anyways?
+>Swanee:The prison's on silent lockdown.  Chang's trying to keep things under wraps.
+>Mueller:Where do we come in?
+>Swanee:He’s giving me a handful of his men to settle the matter.
+>Mueller:Sounds like a good time.
+>Swanee:Peacefully, Mueller.  Peacefully.
+>Mueller:We'll see about that.
+~end
+

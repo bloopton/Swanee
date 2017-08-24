@@ -21,7 +21,9 @@ public class ActivateTextScript : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 		if(theTextBox == null) 
 			theTextBox = FindObjectOfType<TextBoxManager> ();
-		theText = theTextBox.textFile;
+		//theText = theTextBox.textFile;
+		theTextBox.textFile = theText;
+
 	}
 
 	// Update is called once per frame

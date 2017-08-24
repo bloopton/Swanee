@@ -19,7 +19,7 @@ public class RadioScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("Volume: " + backgroundMusic.volume);
+//		Debug.Log ("Volume: " + backgroundMusic.volume);
 		if (Input.GetKeyDown (KeyCode.F)) {
 			if (playerInTriggerZone) {
 					//Debug.Log ("Got F");
